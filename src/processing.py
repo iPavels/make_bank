@@ -1,6 +1,3 @@
-from datetime import datetime
-
-
 def filter_by_state(transactions: list[dict], state: str = "EXECUTED") -> list[dict]:
     """Принимает список словарей и значение для ключа state"""
     filtered_transactions = []
@@ -11,5 +8,6 @@ def filter_by_state(transactions: list[dict], state: str = "EXECUTED") -> list[d
 
 
 def sort_by_date(transactions: list[dict], descending: bool = True) -> list[dict]:
+    """Принимает список словарей и еще один параметр и сортирует"""
     sorted_transactions = sorted(transactions, key=lambda x: x["date"], reverse=descending)
     return sorted_transactions
