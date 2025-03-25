@@ -23,3 +23,5 @@ def get_date(date: str) -> str:
     date_object = datetime.fromisoformat(date)
     formatted_date = date_object.strftime("%d.%m.%Y")
     return formatted_date
+
+print(mask_account_card('Visa Platinum 7000792289606361'))
