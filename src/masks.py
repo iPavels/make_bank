@@ -12,3 +12,6 @@ def get_mask_account(account_number: str) -> str:
         raise ValueError("Неверная длина номера счета. Ожидалось 20 символов.")
     masks = "**" + account_number[-4:]
     return masks
+
+
+# print(get_mask_card_number("1234567890123456"))

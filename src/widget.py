@@ -1,7 +1,6 @@
-
 from datetime import datetime
 
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(input_string: str) -> str:
@@ -24,4 +23,5 @@ def get_date(date: str) -> str:
     formatted_date = date_object.strftime("%d.%m.%Y")
     return formatted_date
 
-print(mask_account_card('Visa Platinum 7000792289606361'))
+
+# print(mask_account_card("Visa 1234567812345678"))
