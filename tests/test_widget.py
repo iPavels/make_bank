@@ -1,13 +1,17 @@
-from src.widget import get_date, mask_account_card
 import pytest
 
+from src.widget import get_date, mask_account_card
 
-@pytest.mark.parametrize("input_string, expected", [
-    ("Visa 1234567812345678", "Visa 1234 56** **** 5678"),
-    ("Счет 12345678901234567890", "Счет **7890"),
-    ("MasterCard 9876543210987654", "MasterCard 9876 54** **** 7654"),
-])
-def test_mask_account_card(input_string, expected):
+
+@pytest.mark.parametrize(
+    "input_string, expected",
+    [
+        ("Visa 1234567812345678", "Visa 1234 56** **** 5678"),
+        ("Счет 12345678901234567890", "Счет **7890"),
+        ("MasterCard 9876543210987654", "MasterCard 9876 54** **** 7654"),
+    ],
+)
+def test_mask_account_card(input_string: str, expected: str) -> None:
     assert mask_account_card(input_string) == expected
 
 
