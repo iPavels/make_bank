@@ -23,4 +23,3 @@ def card_number_generator(start, stop):
         card_number = f"{number:016d}"
         formatted = f"{card_number[:4]} {card_number[4:8]} {card_number[8:12]} {card_number[12:]}"
         yield formatted
-
