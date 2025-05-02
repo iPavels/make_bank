@@ -19,3 +19,24 @@ def f_mask_account() -> list[tuple[str, str]]:
         ("40817810444456789012", "**9012"),
         ("34679825673255761234", "**1234"),
     ]
+
+
+@pytest.fixture
+def sample_transactions():
+    return [
+        {
+            "id": 1,
+            "description": "Перевод организации",
+            "operationAmount": {"amount": "100.00", "currency": {"name": "USD", "code": "USD"}},
+        },
+        {
+            "id": 2,
+            "description": "Оплата",
+            "operationAmount": {"amount": "500.00", "currency": {"name": "RUB", "code": "RUB"}},
+        },
+        {
+            "id": 3,
+            "description": "Перевод с карты на карту",
+            "operationAmount": {"amount": "300.00", "currency": {"name": "USD", "code": "USD"}},
+        },
+    ]
