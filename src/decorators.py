@@ -4,6 +4,13 @@ from typing import Any, Callable, Optional
 
 
 def log(filename: Optional[str] = None) -> Callable:
+    """Модуль decorators содержит декораторы для логирования функций.
+
+    Декоратор log позволяет отслеживать вызовы функций, их параметры,
+    результаты выполнения и возникающие ошибки. Логи могут выводиться
+    в консоль или сохраняться в файл.
+    """
+
     def decorator(func: Callable) -> Callable:
         logger = logging.getLogger(func.__name__)
         logger.setLevel(logging.INFO)
