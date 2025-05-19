@@ -40,7 +40,6 @@ def test_transaction_descriptions_partial_missing():
     assert result == ["Описание есть"]
 
 
-
 @pytest.mark.parametrize(
     "start, stop, expected",
     [
