@@ -73,6 +73,11 @@ card_number_generator(start, stop)
 ## Импорт финансовых операций из CSV
 
 - Реализована функция`read_transactions_from_csv(file_path: str) -> List[Dict]`
+
+## Импорт финансовых операций из Excel
+
+- Реализована функция`read_transactions_from_excel(file_path: str) -> List[Dict]`
+
 ## Документация:
 
 
