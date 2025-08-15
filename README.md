@@ -68,6 +68,16 @@ card_number_generator(start, stop)
 - `filename` — необязательный путь к файлу:
   - если указан, лог сохраняется в файл;
   - если не указан, лог выводится в консоль.
+
+
+## Импорт финансовых операций из CSV
+
+- Реализована функция`read_transactions_from_csv(file_path: str) -> List[Dict]`
+
+## Импорт финансовых операций из Excel
+
+- Реализована функция`read_transactions_from_excel(file_path: str) -> List[Dict]`
+
 ## Документация:
 
 
