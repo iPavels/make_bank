@@ -1,5 +1,6 @@
 import pytest
-from src.search import process_bank_search, process_bank_operations
+
+from src.search import process_bank_operations, process_bank_search
 
 
 @pytest.fixture

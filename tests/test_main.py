@@ -1,5 +1,6 @@
 import pytest
-from main import filter_by_status, sort_by_date, filter_rub
+
+from main import filter_by_status, filter_rub, sort_by_date
 
 
 @pytest.fixture

@@ -1,7 +1,9 @@
-import json
 import csv
+import json
+
 from openpyxl import load_workbook
-from src.search import process_bank_search, process_bank_operations
+
+from src.search import process_bank_search
 
 
 def load_json(path: str) -> list[dict]:
@@ -43,11 +45,13 @@ def print_transactions(data: list[dict]):
 
 
 def main():
-    print("Привет! Добро пожаловать в программу работы с банковскими транзакциями.\n"
-          "Выберите необходимый пункт меню:\n"
-          "1. Получить информацию о транзакциях из JSON-файла\n"
-          "2. Получить информацию о транзакциях из CSV-файла\n"
-          "3. Получить информацию о транзакциях из XLSX-файла")
+    print(
+        "Привет! Добро пожаловать в программу работы с банковскими транзакциями.\n"
+        "Выберите необходимый пункт меню:\n"
+        "1. Получить информацию о транзакциях из JSON-файла\n"
+        "2. Получить информацию о транзакциях из CSV-файла\n"
+        "3. Получить информацию о транзакциях из XLSX-файла"
+    )
 
     choice = input("Ваш выбор: ")
 
@@ -63,12 +67,12 @@ def main():
     else:
         print("Некорректный выбор.")
         return
-
-    # выбор статуса
     valid_statuses = ["EXECUTED", "CANCELED", "PENDING"]
     while True:
-        status = input(f"\nВведите статус, по которому необходимо выполнить фильтрацию. "
-                       f"\nДоступные для фильтровки статусы: {', '.join(valid_statuses)}\n")
+        status = input(
+            f"\nВведите статус, по которому необходимо выполнить фильтрацию. "
+            f"\nДоступные для фильтровки статусы: {', '.join(valid_statuses)}\n"
+        )
         if status.upper() in valid_statuses:
             data = filter_by_status(data, status)
             print(f'Операции отфильтрованы по статусу "{status.upper()}"')
@@ -76,17 +80,14 @@ def main():
         else:
             print(f'Статус операции "{status}" недоступен.')
 
-    # сортировка
     if input("\nОтсортировать операции по дате? Да/Нет\n").strip().lower() == "да":
         order = input("Отсортировать по возрастанию или по убыванию?\n").strip().lower()
         ascending = order.startswith("по в")  # "по возрастанию"
         data = sort_by_date(data, ascending)
 
-    # только рублевые
     if input("\nВыводить только рублевые транзакции? Да/Нет\n").strip().lower() == "да":
         data = filter_rub(data)
 
-    # фильтрация по слову в описании
     if input("\nОтфильтровать список транзакций по определенному слову в описании? Да/Нет\n").strip().lower() == "да":
         word = input("Введите слово для поиска: ")
         data = process_bank_search(data, word)
